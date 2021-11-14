@@ -17,7 +17,7 @@ class TestDeleteMiddle(unittest.TestCase):
         expected_node.append('e')
         expected_node.append('f')
 
-        delete_middle(node)
+        delete_middle(node.next.next) # node with 'c' value
         self.assertTrue(node.is_equal(expected_node))
 
     def test_should_not_delete(self) -> None:
@@ -27,7 +27,7 @@ class TestDeleteMiddle(unittest.TestCase):
         expected_node = Node('a')
         expected_node.append('b')
 
-        delete_middle(node)
+        delete_middle(node.next)
         self.assertTrue(node.is_equal(expected_node))
 
 

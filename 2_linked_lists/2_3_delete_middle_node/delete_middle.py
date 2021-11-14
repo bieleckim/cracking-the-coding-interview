@@ -21,16 +21,8 @@ class Node:
             other_current = other_current.next
         return True
 
-def delete_middle(node: Node):
-    current = node
-    previous_middle = None
+def delete_middle(middle_node: Node):
+    if middle_node and middle_node.next:
+        middle_node.value = middle_node.next.value
+        middle_node.next = middle_node.next.next
 
-    while current:
-        current = current.next
-        if current:
-            current = current.next
-            if current:
-                previous_middle = previous_middle.next if previous_middle else node
-    
-    if previous_middle:
-        previous_middle.next = previous_middle.next.next

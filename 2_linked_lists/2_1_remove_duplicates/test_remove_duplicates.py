@@ -1,6 +1,5 @@
 
 import unittest
-from unittest.case import expectedFailure
 from remove_duplicates import Node, remove_duplicates
 
 class TestRemoveDuplicates(unittest.TestCase):

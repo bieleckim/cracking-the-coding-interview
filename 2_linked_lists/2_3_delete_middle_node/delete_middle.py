@@ -1,12 +1,10 @@
 
-from typing import Dict
-
 class Node:
-    def __init__(self, value: int):
+    def __init__(self, value: str):
         self.value = value
         self.next = None
 
-    def append(self, value: int):
+    def append(self, value: str):
         node = Node(value)
         current = self
         while current.next:
@@ -23,15 +21,16 @@ class Node:
             other_current = other_current.next
         return True
 
-def remove_duplicates(node: Node):
-    values: Dict[int, bool] = {}
-    prev = None
+def delete_middle(node: Node):
     current = node
-    while current.next:
-        if current.value in values:
-            prev.next = current.next
-        else:
-            values[current.value] = True
-        prev = current
+    previous_middle = None
+
+    while current:
         current = current.next
-    return node
+        if current:
+            current = current.next
+            if current:
+                previous_middle = previous_middle.next if previous_middle else node
+    
+    if previous_middle:
+        previous_middle.next = previous_middle.next.next
